@@ -1,0 +1,1 @@
+﻿xcopy "$(ProjectDir)$(ProjectName).addin" "%appdata%\Autodesk\Revit\Addins\2022\" /y /i

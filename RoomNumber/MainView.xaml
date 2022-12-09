@@ -1,0 +1,47 @@
+﻿<Window x:Class="RoomNumber.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RoomNumber"
+             mc:Ignorable="d" 
+             Height="250" Width="400" Title="Нумерация помещений" >
+    <StackPanel>
+        <DockPanel>
+            <Label Content="Принцип нумерации:"  Width="140" VerticalContentAlignment="Center"/>
+            <ComboBox ItemsSource="{Binding NumeratorType, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  SelectedItem="{Binding SelectedNumeratorType, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                  DisplayMemberPath="Type"
+                  IsEditable="True"
+                  IsReadOnly="True"
+                  Margin="5"
+                  Padding="2"
+                  HorizontalContentAlignment="Left"/>
+        </DockPanel>
+        <DockPanel>
+            <Label Content="Параметр нумерации:" Width="140" VerticalContentAlignment="Center"/>
+            <ComboBox ItemsSource="{Binding Parameters, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  SelectedItem="{Binding SelectedParameter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                  DisplayMemberPath="Name"
+                  IsEditable="True"
+                  IsReadOnly="True"
+                  Margin="5"
+                  Padding="2"
+                  HorizontalContentAlignment="Left"/>
+        </DockPanel>
+        <DockPanel>
+            <Label Content="Cтартовый номер:" Width="140" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding StartNumber, UpdateSourceTrigger=PropertyChanged}" Margin="5" Padding="2" HorizontalAlignment="Stretch"/>
+        </DockPanel>
+        <DockPanel>
+            <Button x:Name="buttonSelect" Command="{Binding SelectCommand}" Margin="5" Padding="2" Width="130">
+                <Button.Content>
+                    <TextBlock Text="Выбрать помещения" TextWrapping="Wrap"/>
+                </Button.Content>
+            </Button>
+            <TextBox Text="{Binding SelectElementInfo, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Margin="5"/>
+        </DockPanel>
+        <Button x:Name="buttonStart" Content="Запустить нумерацию" Command="{Binding MainCommand}" Margin="5" Padding="5"/>
+        <TextBlock x:Name="tbMassege" Text="{Binding Messege, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="5"/>
+    </StackPanel>
+</Window>
