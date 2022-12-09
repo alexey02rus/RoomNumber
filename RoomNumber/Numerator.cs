@@ -33,6 +33,11 @@ namespace RoomNumber
         public static List<Room> PickRooms(UIDocument uiDocument, out Room room) // Выбор помещений для нумерации пользователем и выбор стартового помещения
         {
             List<Room> rooms = Numerator.PickRooms(uiDocument);
+            if (rooms == null || rooms.Count < 1)
+            {
+                room = null;
+                return null;
+            }
             try
             {
                 Document document = uiDocument.Document;
