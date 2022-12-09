@@ -181,7 +181,7 @@ namespace RoomNumber
             RaiseHideRequest();
             SelectElement.Clear();
             SelectElement = SelectedNumeratorType.GetRooms(uiDoc);
-            if (SelectElement.Any())
+            if (SelectElement != null && SelectElement.Any())
             {
                 SelectElementInfo = $"Выбрано {SelectElement.Count} помещений.";
             }
@@ -191,7 +191,6 @@ namespace RoomNumber
             }
             RaiseShowRequest();
         }
-
 
         private void OnMainCommand()
         {

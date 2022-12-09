@@ -21,12 +21,12 @@ namespace RoomNumber
             }
             catch (Autodesk.Revit.Exceptions.OperationCanceledException)
             {
-                return null;
+                return new List<Room>();
             }
             catch (Exception ex)
             {
                 TaskDialog.Show("Исключение!", ex.Message);
-                return null;
+                return new List<Room>();
             }
         }
 
@@ -36,7 +36,7 @@ namespace RoomNumber
             if (rooms == null || rooms.Count < 1)
             {
                 room = null;
-                return null;
+                return new List<Room>();
             }
             try
             {
@@ -49,13 +49,13 @@ namespace RoomNumber
             catch (Autodesk.Revit.Exceptions.OperationCanceledException)
             {
                 room = null;
-                return null;
+                return new List<Room>();
             }
             catch (Exception ex)
             {
                 TaskDialog.Show("Исключение!", ex.Message);
                 room = null;
-                return null;
+                return new List<Room>();
             }
         } 
 
