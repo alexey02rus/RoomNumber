@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ForCopy.txt" />
+    <Resource Include="icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
